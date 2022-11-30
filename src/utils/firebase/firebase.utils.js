@@ -20,16 +20,20 @@ const firebaseConfig = {
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
 
-const provider = new GoogleAuthProvider();
+const googleProvider = new GoogleAuthProvider();
 
-provider.setCustomParameters({
+googleProvider.setCustomParameters({
   prompt: "select_account",
 });
 
 // Auth
-
 export const auth = getAuth();
-export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+
+// Sign In Methods
+export const signInWithGooglePopup = () =>
+  signInWithPopup(auth, googleProvider);
+export const signInWithGoogleRedirect = () =>
+  signInWithRedirect(auth, googleProvider);
 
 // DB
 
@@ -39,8 +43,6 @@ export const createUserDocumentFromAuth = async (userAuth) => {
   // check if exist
   // doc instance and pass in the firestore database, the collection, and the UID
   const userDocRef = doc(db, "users", userAuth.uid);
-
-  console.log(userDocRef);
 
   // Try to getDoc from userRef
   const userSnapshop = await getDoc(userDocRef);
