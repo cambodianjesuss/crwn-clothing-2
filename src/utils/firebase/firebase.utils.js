@@ -40,8 +40,6 @@ export const createUserDocumentFromAuth = async (userAuth) => {
   // doc instance and pass in the firestore database, the collection, and the UID
   const userDocRef = doc(db, "users", userAuth.uid);
 
-  console.log(userDocRef);
-
   // Try to getDoc from userRef
   const userSnapshop = await getDoc(userDocRef);
 
