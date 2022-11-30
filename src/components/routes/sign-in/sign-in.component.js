@@ -7,7 +7,6 @@ import {
   signInWithGoogleRedirect,
   createUserDocumentFromAuth,
 } from "../../../utils/firebase/firebase.utils";
-import { async } from "@firebase/util";
 
 const SignIn = () => {
   useEffect(() => {
