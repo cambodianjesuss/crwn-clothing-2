@@ -32,6 +32,7 @@ export const auth = getAuth();
 // Sign In Methods
 export const signInWithGooglePopup = () =>
   signInWithPopup(auth, googleProvider);
+
 export const signInWithGoogleRedirect = () =>
   signInWithRedirect(auth, googleProvider);
 
