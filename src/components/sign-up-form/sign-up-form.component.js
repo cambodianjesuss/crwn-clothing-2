@@ -19,6 +19,10 @@ const SignUpForm = () => {
     setFormFields({ ...formFields, [name]: value });
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+  };
+
   return (
     <div>
       <h1>Sign up with your email and password</h1>

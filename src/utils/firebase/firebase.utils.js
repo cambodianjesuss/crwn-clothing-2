@@ -39,6 +39,8 @@ export const signInWithGooglePopup = () =>
 export const db = getFirestore();
 
 export const createUserDocumentFromAuth = async (userAuth) => {
+  if (!userAuth) return;
+
   // check if exist
   // doc instance and pass in the firestore database, the collection, and the UID
   const userDocRef = doc(db, "users", userAuth.uid);
@@ -65,4 +67,8 @@ export const createUserDocumentFromAuth = async (userAuth) => {
   return userDocRef;
 };
 
-export const createAuthUserWithEmailAndPassword = async () => {};
+export const createAuthUserWithEmailAndPassword = async (email, password) => {
+  if (!email || !password) return;
+
+  return await createUserWithEmailAndPassword(auth, email, password);
+};
