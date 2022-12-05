@@ -1,4 +1,4 @@
-import { createAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase.utils";
+import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "../../utils/firebase/firebase.utils";
 import { useState } from "react";
 
 const defaultFormFields = {
@@ -29,8 +29,9 @@ const SignUpForm = () => {
     }
 
     try {
-      const response = await createAuthUserWithEmailAndPassword(email, password)
-      console.log(response)
+      const {user } = await createAuthUserWithEmailAndPassword(email, password)
+      
+      await createUserDocumentFromAuth(user, {displayName});
     } catch(err){
       console.log(err.message)
     }
