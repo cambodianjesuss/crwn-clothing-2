@@ -3,6 +3,7 @@ import {
   createUserDocumentFromAuth,
 } from "../../../utils/firebase/firebase.utils";
 
+import SignInForm from "../../sign-in-form/sign-in-form.component";
 import SignUpForm from "../../sign-up-form/sign-up-form.component";
 import Button from "../../button/button.component";
 
@@ -15,8 +16,7 @@ const SignIn = () => {
 
   return (
     <div>
-      <h1>Sign In</h1>
-      <Button onClick={logGoogleUser} buttonType='google'>Sign in with Google</Button>
+      <SignInForm logGoogleUser={logGoogleUser} />
       {/*<button onClick={logGoogleUser}>Sign in with Google Popup</button>*/}
       <SignUpForm />
     </div>
