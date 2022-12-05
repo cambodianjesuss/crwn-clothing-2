@@ -72,6 +72,5 @@ export const createAuthUserWithEmailAndPassword = async (email, password) => {
 
   if (!email || !password) return;
 
-  console.log(auth);
   return await createUserWithEmailAndPassword(auth, email, password);
 };
