@@ -20,6 +20,7 @@ const SignInForm = ({logGoogleUser})=>{
         name="password"
         value
       />
+      <Button>Sign in</Button>
       <Button onClick={logGoogleUser} buttonType='google'>Sign in with Google</Button>
     </div>
   )
