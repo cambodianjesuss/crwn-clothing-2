@@ -1,4 +1,4 @@
-import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth, signInWithGooglePopup } from "../../utils/firebase/firebase.utils";
+import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth, signInWithGooglePopup, signInAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase.utils";
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 
@@ -37,20 +37,22 @@ const SignInForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // if(password !== confirmPassword) {
-    //   alert('passwords do not match')
-    //   return
-    // }
-
-    // try {
-    //   const {user} = await createAuthUserWithEmailAndPassword(email, password)
-
-    //   await createUserDocumentFromAuth(user, {displayName})
-    //   resetFormFields();
-
-    // } catch(error){
-    //   if(error.code === 'auth/email-already-in-use'){ alert('Cannot create user, email already in use')} else {console.log('user creation encountered an error', error)}
-    // }
+    try {
+      const response = await signInAuthUserWithEmailAndPassword(email, password)
+      console.log(response);
+      resetFormFields()
+    } catch(error){
+      switch(error.code){
+        case 'auth/wrong-password':
+          alert('incorrect password or email')
+          break;
+        case 'auth/user-not-found':
+          alert('no user associated with this emai')
+          break;
+        default:
+          console.log(error);
+      }
+    }
   };
 
   return (
