@@ -1,4 +1,4 @@
-import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from "../../utils/firebase/firebase.utils";
+import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth, signInWithGooglePopup } from "../../utils/firebase/firebase.utils";
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 
@@ -21,6 +21,12 @@ const SignInForm = () => {
   const resetFormFields = () => {
     setFormFields(defaultFormFields)
   }
+
+  const signInWithGoogle = async () => {
+    const { user } = await signInWithGooglePopup();
+    // eslint-disable-next-line no-unused-vars
+    await createUserDocumentFromAuth(user);
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -68,9 +74,12 @@ const SignInForm = () => {
           name="password"
           value={password} 
         />
-        <Button buttonType='' type="submit">
-          Sign In
-        </Button>
+        <div className="buttons-container">
+          <Button buttonType='' type="submit">
+            Sign In
+          </Button>
+          <Button buttonType='google' onClick={signInWithGoogle}>Google sign in</Button>
+        </div>
       </form>
     </div>
   );
