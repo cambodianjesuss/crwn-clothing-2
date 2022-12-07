@@ -1,5 +1,6 @@
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
+// add function
 
 const SignInForm = ({logGoogleUser})=>{
   return (
