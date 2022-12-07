@@ -1,6 +1,5 @@
 import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
-// add function for sign in
 
 const SignInForm = ({logGoogleUser})=>{
   return (
@@ -21,7 +20,7 @@ const SignInForm = ({logGoogleUser})=>{
         name="password"
         value
       />
-      <Button onClick={}>Sign in</Button>
+      <Button>Sign in</Button>
       <Button onClick={logGoogleUser} buttonType='google'>Sign in with Google</Button>
     </div>
   )
