@@ -12,4 +12,11 @@
  * UserProvider -- /user.context.js
  * -- Creates UserContext that instantiate the initial value & setter function
  * -- Creates UserProvider that returns the UserContext with the hook to trigger state changes
+ * 
+ * Browser Router - index.js
+ * --> App.js
+ * ----> Route Navigation, then nest child routes
+ * ----> navigation.component.js
+ * ---------> Links
+ * -------------> Outlet, renders child route
  */
