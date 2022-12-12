@@ -25,6 +25,7 @@
 /**
  * Context & Provider
  * 1. Create context (state or data)
+ * 2. Create Provider that returns context.provider with value and children
  * --> import { createContext, useEffect, useState} from 'react'
  * --> import PRODUCTS from './somedata.json'
  * --> export const ProductsContext = createContext({ products: [], setProducts: ()=> null})
