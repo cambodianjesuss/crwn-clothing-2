@@ -20,3 +20,21 @@
  * ---------> Links
  * -------------> Outlet, renders child route
  */
+
+
+/**
+ * Context & Provider
+ * 1. Create context (state or data)
+ * --> import { createContext, useEffect, useState} from 'react'
+ * --> import PRODUCTS from './somedata.json'
+ * --> export const ProductsContext = createContext({ products: [], setProducts: ()=> null})
+ * --> export const ProductsProvider = ({children}) => {
+ *  const [products, setProducts] = useState(PRODUCTS)
+ *  const value = {products}
+ *  useEffect(()=>{
+ *    setProducts(PRODUCTS)
+ *  }, []);
+ * 
+ *  return <ProductsContext.Provider value={value}>{children}</ProductsContext.Provider>
+ * }
+ */
