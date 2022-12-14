@@ -9,6 +9,7 @@ export const SportsProvider = ({children})=>{
   const [sports, setSports] = useState([]);
   const value = {sports, setSports};
 
+  setSports("Football")
   // setSports
   return <SportsContext.Provider value={value}>{children}</SportsContext.Provider>
 }
