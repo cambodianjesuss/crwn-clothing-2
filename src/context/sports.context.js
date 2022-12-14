@@ -2,4 +2,9 @@
 
 import { createContext, useState } from "react";
 
-const SportsContext = createContext();
+export const SportsContext = createContext();
+
+export const SportsProvider = ({children})=>{
+
+  return <SportsContext.Provider value={}>{children}</SportsContext.Provider>
+}
