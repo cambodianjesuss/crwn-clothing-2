@@ -1,6 +1,8 @@
 import { createContext, useState, useEffect } from "react";
 import PRODUCTS from '../shop-data.json'
 
+// Default context is products state
+// then we set the products immediatly 
 export const ProductsContext = createContext({
   products: [],
 });
