@@ -1,8 +1,13 @@
+import Button from '../button/button.component';
+
 import './cart-dropdown.styles.scss';
 
 const CartDropown = () => {
   return (
-    <div>Cart Dropdown</div>
+    <div className='cart-dropdown-container'>
+      <div className='cart-items'></div>
+      <Button buttonType="inverted">GO TO CHECKOUT</Button>
+    </div>
   )
 }
 
