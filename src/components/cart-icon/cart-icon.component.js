@@ -6,10 +6,11 @@ import './cart-icon.styles.scss';
 
 const CartIcon = () => {
   const {products} = useContext(ProductsContext)
-  console.log(products.length)
+
+
   return (
     <div className='cart-icon-container'>
-      <ShoppingIcon className='shopping-icon' />
+      <ShoppingIcon className='shopping-icon'/>
       <span className='item-count'>0</span>
     </div>
   )
