@@ -35,7 +35,7 @@ export const CartToggleProvider = ({children})=> {
   } 
 
 
-  const value = { isCartOpen, setIsCartOpen}
+  const value = { isCartOpen, setIsCartOpen, addItemToCart, cartItems}
 
   return <CartToggleContext.Provider value={value}>{children}</CartToggleContext.Provider>
 }
