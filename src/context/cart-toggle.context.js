@@ -3,6 +3,12 @@ import { createContext, useState } from 'react';
 // Helper function to check if we need to add a new cart item or update quantity
 const addCartItem = (cartItems, productToAdd) => {
 
+  // If cart item exists
+  const existingCartItem = cartItems.find((cartItem)=>cartItem.id === productToAdd.id)
+
+  // If found, incrememnt quantity
+
+  // Return new array wwith modified cartItems/ new cart item
   return [...cartItems, {...productToAdd, quatitiy: 1} ]
 }
 
