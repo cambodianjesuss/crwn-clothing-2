@@ -8,6 +8,7 @@ import CartDropown from "../../cart-dropdown/cart-dropdown.component";
 
 // Context
 import { UserContext } from "../../../context/user.context";
+import { CartToggleContext } from "../../../context/cart-toggle.context";
 
 // Assets & Styles
 import { ReactComponent as CrwnLogo } from "../../../assets/crown.svg";
@@ -16,6 +17,7 @@ import "./navigation.styles.scss";
 
 const Navigation = () => {
   const {currentUser, setCurrentUser} = useContext(UserContext);
+  const { isCartOpen } = useContext(CartToggleContext);
   
   const signOutHandler = async ()=>{
     const res = await SignOutUser();
@@ -42,7 +44,8 @@ const Navigation = () => {
           }
           <CartIcon />
         </div>
-        <CartDropown />
+        {/** if isCartOpen is true, will render any component because it always is true */}
+        { isCartOpen && <CartDropown />}
       </div>
       <Outlet />
     </Fragment>
