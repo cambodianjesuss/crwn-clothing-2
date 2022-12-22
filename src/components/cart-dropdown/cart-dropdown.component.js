@@ -1,6 +1,11 @@
+import { useContext } from 'react';
+
 // Components
 import Button from '../button/button.component';
 import CartItem from '../cart-item/cart-item.component';
+
+// Context
+import { CartToggleContext } from '../../context/cart.context';
 
 // Assets & Styles
 import './cart-dropdown.styles.scss';

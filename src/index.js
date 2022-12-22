@@ -8,7 +8,7 @@ import App from "./App";
 // Providers
 import { UserProvider } from "./context/user.context";
 import { ProductsProvider } from "./context/products.context";
-import { CartToggleProvider } from "./context/cart-toggle.context";
+import { CartProvider } from "./context/cart.context";
 
 import reportWebVitals from "./reportWebVitals";
 
@@ -18,9 +18,9 @@ root.render(
     <BrowserRouter>
       <UserProvider>
         <ProductsProvider>
-          <CartToggleProvider>
+          <CartProvider>
             <App />
-          </CartToggleProvider>
+          </CartProvider>
         </ProductsProvider>
       </UserProvider>
     </BrowserRouter>

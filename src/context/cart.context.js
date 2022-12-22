@@ -18,14 +18,14 @@ const addCartItem = (cartItems, productToAdd) => {
   return [...cartItems, {...productToAdd, quatitiy: 1} ]
 }
 
-export const CartToggleContext = createContext({
+export const CartContext = createContext({
   isCartOpen: false,
   setIsCartOpen: ()=>{},
   cartItems: [],
   addItemToCart: ()=>{}
 });
 
-export const CartToggleProvider = ({children})=> {
+export const CartProvider = ({children})=> {
 
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
@@ -37,5 +37,5 @@ export const CartToggleProvider = ({children})=> {
 
   const value = { isCartOpen, setIsCartOpen, addItemToCart, cartItems}
 
-  return <CartToggleContext.Provider value={value}>{children}</CartToggleContext.Provider>
+  return <CartContext.Provider value={value}>{children}</CartContext.Provider>
 }
