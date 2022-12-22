@@ -1,4 +1,6 @@
 import { createContext, useState, useEffect } from "react";
+
+// Data
 import PRODUCTS from '../shop-data.json'
 
 // Default context is products state

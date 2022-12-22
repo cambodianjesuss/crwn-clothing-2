@@ -1,5 +1,7 @@
+// Components
 import Button from '../button/button.component';
 
+// Assets & Styles
 import './cart-dropdown.styles.scss';
 
 const CartDropown = () => {
