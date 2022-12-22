@@ -6,7 +6,13 @@ const addCartItem = (cartItems, productToAdd) => {
   // If cart item exists
   const existingCartItem = cartItems.find((cartItem)=>cartItem.id === productToAdd.id)
 
-  // If found, incrememnt quantity
+  // If found, incrememnt quantity, else return 
+  if(existingCartItem){
+    return cartItems.map((cartItem)=> cartItem.id === productToAdd.id
+      ? {...cartItem, quatitiy: cartItem.quatitiy + 1}
+      : cartItem
+    )
+  }
 
   // Return new array wwith modified cartItems/ new cart item
   return [...cartItems, {...productToAdd, quatitiy: 1} ]
