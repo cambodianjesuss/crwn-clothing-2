@@ -5,9 +5,11 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.scss";
 import App from "./App";
 
+// Providers
 import { UserProvider } from "./context/user.context";
 import { ProductsProvider } from "./context/products.context";
 import { CartToggleProvider } from "./context/cart-toggle.context";
+
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
