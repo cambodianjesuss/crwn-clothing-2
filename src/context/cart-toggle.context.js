@@ -3,6 +3,7 @@ import { createContext, useState } from 'react';
 // Helper function to check if we need to add a new cart item or update quantity
 const addCartItem = (cartItems, productToAdd) => {
 
+  return [...cartItems, {...productToAdd, quatitiy: 1} ]
 }
 
 export const CartToggleContext = createContext({
