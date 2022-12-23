@@ -10,6 +10,7 @@ import './cart-item.styles.scss'
 const CartItem = ({cartItem}) => {
 
   const { name, quantity } = cartItem;
+  console.log(cartItem)
 
   return (
     <div>

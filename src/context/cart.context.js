@@ -9,13 +9,13 @@ const addCartItem = (cartItems, productToAdd) => {
   // If found, incrememnt quantity, else return 
   if(existingCartItem){
     return cartItems.map((cartItem)=> cartItem.id === productToAdd.id
-      ? {...cartItem, quatitiy: cartItem.quatitiy + 1}
+      ? {...cartItem, quantity: cartItem.quantity + 1}
       : cartItem
     )
   }
 
   // Return new array wwith modified cartItems/ new cart item
-  return [...cartItems, {...productToAdd, quatitiy: 1} ]
+  return [...cartItems, {...productToAdd, quantity: 1} ]
 }
 
 export const CartContext = createContext({
