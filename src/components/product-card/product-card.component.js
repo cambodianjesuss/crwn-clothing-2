@@ -14,9 +14,7 @@ const ProductCard = ({product}) => {
 
   const { addItemToCart } = useContext(CartContext);
 
-  const onClickHandler = (product) => {
-    console.log(product.id, product.name, product.price)
-  }
+  const addProductToCart = () => addItemToCart(product)
 
   return (
     <div className='product-card-container'>
@@ -26,7 +24,7 @@ const ProductCard = ({product}) => {
         <span className='price'>{price}</span>
         <span>{id}</span>
       </div>
-      <Button buttonType="inverted" onClick={()=> onClickHandler(product)}>Add to cart</Button>
+      <Button buttonType="inverted" onClick={addProductToCart}>Add to cart</Button>
     </div>
   )
 }
