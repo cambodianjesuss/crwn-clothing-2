@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 
 // Helper function to check if we need to add a new cart item or update quantity
 const addCartItem = (cartItems, productToAdd) => {
@@ -29,13 +29,20 @@ export const CartProvider = ({children})=> {
 
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartItems, setCartItems] = useState([]);
+  const [cartCount, setCartCount] = useState(0);
 
   const addItemToCart = (productToAdd) => {
     setCartItems(addCartItem(cartItems, productToAdd));
   } 
 
+  useEffect(()=>{
+    // Reduce & add up toatl cart items quantity
+    const newCartCount = cartItems.reduce((total, currentItem)=> total + currentItem.quantity, 0);
+    
+    setCartCount(newCartCount);
+  }, [cartItems])
 
-  const value = { isCartOpen, setIsCartOpen, addItemToCart, cartItems}
+  const value = { isCartOpen, setIsCartOpen, addItemToCart, cartItems, cartCount}
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>
 }
