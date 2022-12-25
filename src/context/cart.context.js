@@ -18,11 +18,14 @@ const addCartItem = (cartItems, productToAdd) => {
   return [...cartItems, {...productToAdd, quantity: 1} ]
 }
 
+// Helper function to remove an item from the checkout page
+
+
 export const CartContext = createContext({
   isCartOpen: false,
   setIsCartOpen: ()=>{},
   cartItems: [],
-  addItemToCart: ()=>{}
+  addItemToCart: ()=>{},
 });
 
 export const CartProvider = ({children})=> {
@@ -33,7 +36,15 @@ export const CartProvider = ({children})=> {
 
   const addItemToCart = (productToAdd) => {
     setCartItems(addCartItem(cartItems, productToAdd));
-  } 
+  }
+  
+  const removeItemToCart = (cartItems, cartItemToRemove) => {
+    // Find the cart item
+
+    // Check if quantity is equal to 1, then we remove that item completely
+
+    // Return back cartItems with matching cartItem with reduced quantity
+  }
 
   useEffect(()=>{
     // Reduce & add up toatl cart items quantity
