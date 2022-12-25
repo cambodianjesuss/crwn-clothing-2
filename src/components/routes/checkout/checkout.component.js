@@ -8,7 +8,7 @@ import './checkout.styles.scss'
 
 const Checkout = () => {
 
-  const { cartItems, addItemToCart } = useContext(CartContext)
+  const { cartItems, addItemToCart, } = useContext(CartContext)
   return (
     <div>
       <h1>I am the checkout page</h1>
