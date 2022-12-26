@@ -18,14 +18,26 @@ const addCartItem = (cartItems, productToAdd) => {
   return [...cartItems, {...productToAdd, quantity: 1} ]
 }
 
-// Helper function to remove an item from the checkout page
+const removeCartItem = (cartItems, cartItemToRemove) => {
+  const existingCartItem = cartItems.find((cartItem)=>cartItem.id === cartItemToRemove.id);
 
+  if(existingCartItem.quantity === 1) {
+    return cartItems.filter((cartItem) => cartItem.id !== cartItemToRemove.id)
+  }
+
+  return cartItems.map((cartItem)=> cartItem.id === cartItemToRemove.id
+      ? {...cartItem, quantity: cartItem.quantity - 1}
+      : cartItem
+    )
+
+}
 
 export const CartContext = createContext({
   isCartOpen: false,
   setIsCartOpen: ()=>{},
   cartItems: [],
   addItemToCart: ()=>{},
+  removeItemFromCart: ()=>{}
 });
 
 export const CartProvider = ({children})=> {
@@ -34,16 +46,13 @@ export const CartProvider = ({children})=> {
   const [cartItems, setCartItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
 
+  // Setting new state
   const addItemToCart = (productToAdd) => {
     setCartItems(addCartItem(cartItems, productToAdd));
   }
   
-  const removeItemToCart = (cartItems, cartItemToRemove) => {
-    // Find the cart item
-
-    // Check if quantity is equal to 1, then we remove that item completely
-
-    // Return back cartItems with matching cartItem with reduced quantity
+  const removeItemToCart = (cartItemToRemove) => {
+    setCartItems(removeCartItem(cartItems, cartItemToRemove));
   }
 
   useEffect(()=>{
@@ -53,7 +62,7 @@ export const CartProvider = ({children})=> {
     setCartCount(newCartCount);
   }, [cartItems])
 
-  const value = { isCartOpen, setIsCartOpen, addItemToCart, cartItems, cartCount}
+  const value = { isCartOpen, setIsCartOpen, addItemToCart, cartItems, cartCount, removeItemToCart}
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>
 }
