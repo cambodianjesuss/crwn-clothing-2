@@ -12,6 +12,7 @@ import { CartContext } from "../../../context/cart.context";
 
 // Assets & Styles
 import { ReactComponent as CrwnLogo } from "../../../assets/crown.svg";
+import { ReactComponent as CamboLogo} from "../../../assets/cambodianjesuss.svg"
 import "./navigation.styles.scss";
 
 
@@ -27,7 +28,7 @@ const Navigation = () => {
     <Fragment>
       <div className="navigation">
         <Link className="logo-container" to="/">
-          <CrwnLogo />
+          <CamboLogo />
         </Link>
         <div className="nav-links-container">
           <Link className="nav-link" to="/shop">
