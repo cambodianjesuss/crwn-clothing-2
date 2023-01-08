@@ -13,7 +13,7 @@ const DirectoryItem = ({ category }) => {
         style={{ backgroundImage: `url(${imageUrl})` }}
       />
       <div className="directory-body-container">
-        <Link to={`/${title}`}>
+        <Link to={`/shop/${title}`}>
           <h2>{title.toUpperCase()}</h2>
           <p>SHOP NOW</p>
         </Link>
